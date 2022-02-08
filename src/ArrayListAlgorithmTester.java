@@ -5,8 +5,8 @@ public class ArrayListAlgorithmTester
 {
     public static void main(String[] args)
     {
-        ArrayList<String> stringList7 = new ArrayList<String>(Arrays.asList("hello", "my", "best", "friend"));
-        ArrayListAlgorithms.duplicateUpperEnd(stringList7);
-        System.out.println(stringList7);
+        ArrayList<String> myWordList = new ArrayList<String>(Arrays.asList("apple", "banana", "cherry", "donut", "bagel", "danish", "berry", "baguette", "soda"));
+        ArrayListAlgorithms.moveBWords(myWordList);
+        System.out.println(myWordList);
     }
 }

@@ -218,7 +218,36 @@ public class ArrayListAlgorithms{
      *  @return  new arraylist of Strings containing the words of sentence reversed
      */
     public static ArrayList<String> parseWordsAndReverse(String sentence){
-        String delimiter = " ";
+        ArrayList<String> array = new ArrayList<String>();
+        String sen = sentence + " ";
+        for (int i = sen.indexOf(" "); i != -1; i = sen.indexOf(" ")){
+            array.add(0, sen.substring(0, i));
+            sen = sen.substring(i + 1);
+        }
+        return array;
+    }
 
+    /** Removes all words from wordList that begin with "b" and inserts them at the
+     *  front of wordList; all "b" words that are moved should appear in the same order
+     *  in the modified arrayList as they did before being moved
+     *
+     *  For example, this method will take a wordList:
+     *  ["apple", "banana", "cherry", "donut", "bagel", "danish", "berry", "baguette", "soda"]
+     *  and modify it to
+     *  ["banana", "bagel", "berry", "baguette", "apple", "cherry", "donut", "danish", "soda"]
+     *
+     *  DOES mutate (modify) elements in wordList
+     *  PRECONDITIONS: wordList.size() > 0, all strings in wordList have at least one character
+     *
+     *  @param wordList  arraylist of words
+     */
+    public static void moveBWords(ArrayList<String> wordList){
+        for (int i = 0; i < wordList.size(); i++){
+            if (wordList.get(i).substring(0, 1).equals("b")){
+                String word = wordList.remove(i);
+                wordList.remove(i);
+                wordList.add(i, word);
+            }
+        }
     }
 }
