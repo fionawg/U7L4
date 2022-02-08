@@ -160,10 +160,65 @@ public class ArrayListAlgorithms{
      */
     public static void removeDuplicates(ArrayList<Integer> intList){
         for (int i = 0; i < intList.size(); i++){
-            System.out.println("i " + intList.get(i));
-            for (int j = 1; j < intList.size(); j++){
-
+            for (int j = 0; j < intList.size(); j++){
+                if (intList.get(i) == intList.get(j) && i != j){
+                    intList.remove(j);
+                }
             }
         }
+    }
+
+    /** Adds an uppercase version of each string directly AFTER the string
+     *  in wordList; for example, if wordList is ["hello", "my", "best", "friend"]
+     *  this this method modifies wordList to be:
+     *  ["hello", "HELLO", "my", "MY", "best", "BEST", "friend", "FRIEND"]
+     *
+     *  Assume all words have lowercase letters originally
+     *
+     *  DOES mutate (modify) elements in wordList
+     *  PRECONDITION: wordList.size() > 0
+     *
+     *  @param wordList  arraylist of Strings
+     */
+    public static void duplicateUpperAfter(ArrayList<String> wordList){
+        for (int i = 0; i < wordList.size(); i += 2){
+            wordList.add(i + 1, wordList.get(i).toUpperCase());
+        }
+    }
+
+    /** Appends an uppercase version of each string to the END of of wordList;
+     *  the uppercase versions appear in the same order as the lowercase versions
+     *  for example, if wordList is ["hello", "my", "best", "friend"]
+     *  this this method modifies wordList to be:
+     *  ["hello", "my", "best", "friend", "HELLO", "MY", "BEST", "FRIEND"]
+     *
+     *  Assume all words have lowercase letters originally
+     *
+     *  DOES mutate (modify) elements in wordList
+     *  PRECONDITION: wordList.size() > 0
+     *
+     *  @param wordList  arraylist of Strings
+     */
+    public static void duplicateUpperEnd(ArrayList<String> wordList){
+        int size = wordList.size();
+        for (int i = 0; i < size; i++){
+            wordList.add(wordList.get(i).toUpperCase());
+        }
+    }
+
+    /** Returns an arraylist of Strings that represents the input sentence parsed
+     *  into separate words (using a space: " " as the delimiter) and REVERSED
+     *  For example, if sentence = "This is my sentence!"
+     *  this method return [sentence!, my, is, This]
+     *
+     *  PRECONDITION: sentence does not end with a space
+     *
+     *  @param sentence  the input String that represents one or more words
+    separated by spaces
+     *  @return  new arraylist of Strings containing the words of sentence reversed
+     */
+    public static ArrayList<String> parseWordsAndReverse(String sentence){
+        String delimiter = " ";
+
     }
 }
