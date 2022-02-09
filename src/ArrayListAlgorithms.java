@@ -159,12 +159,15 @@ public class ArrayListAlgorithms{
      *  @param intList  intList of Integers
      */
     public static void removeDuplicates(ArrayList<Integer> intList){
-        for (int i = 0; i < intList.size(); i++){
-            for (int j = 0; j < intList.size(); j++){
-                if (intList.get(i) == intList.get(j) && i != j){
-                    intList.remove(j);
-                }
+        ArrayList<Integer> newList = new ArrayList<Integer>();
+        for (int num : intList){
+            if(!newList.contains(num)){
+                newList.add(num);
             }
+        }
+        intList.clear();
+        for (int i : newList){
+            intList.add(i);
         }
     }
 
@@ -242,12 +245,38 @@ public class ArrayListAlgorithms{
      *  @param wordList  arraylist of words
      */
     public static void moveBWords(ArrayList<String> wordList){
+        int index = 0;
         for (int i = 0; i < wordList.size(); i++){
             if (wordList.get(i).substring(0, 1).equals("b")){
                 String word = wordList.remove(i);
-                wordList.remove(i);
-                wordList.add(i, word);
+                wordList.add(index, word);
+                index++;
             }
         }
+    }
+
+    /** Returns Arraylist of Integers that contain all mode(s) of the int array numList.
+     *  If elements in numList all appear exactly once, there is no mode, and this method
+     *  should return an empty list
+     *
+     *  For example, if numList is: [1, 2, 3, 2, 4, 5, 5, 6],
+     *  then numList contains two modes: 2, 5
+     *  and this method returns an arraylist containing 2 and 5 (in any order)
+     *  If numList is: [1, 2, 3, 2, 4, 5, 5, 6, 6, 7, 6],
+     *  then numList contains one mode: 6
+     *  and this method returns an arrayList containing 6
+     *  If numList is: [1, 2, 3, 4, 5, 6], then numList contains no mode
+     *  and this method returns an empty arrayList: []
+     *  If numList is: [2, 2, 2, 3, 3, 3, 4, 4, 4],
+     *  then numList contains three modes: 2, 3, 4
+     *  and this method returns an arrayList containing 2, 3, and 4 (in any order)
+     *
+     *  Does NOT mutate (modify) elements in numList
+     *  PRECONDITIONS: numList.length > 0
+     *
+     *  @param numList  numList of ints
+     */
+    public static ArrayList<Integer> modes(int[] numList){
+
     }
 }
