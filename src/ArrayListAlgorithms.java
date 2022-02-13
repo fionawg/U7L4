@@ -277,6 +277,29 @@ public class ArrayListAlgorithms{
      *  @param numList  numList of ints
      */
     public static ArrayList<Integer> modes(int[] numList){
-
+        ArrayList<Integer> modes = new ArrayList<Integer>();
+        int temp = 0;
+        int numTemp = 0;
+        int compareMode = 0;
+        int numCompareMode = 0;
+        for (int i = 0; i < numList.length; i++){
+            temp = numList[i];
+            numTemp = 0;
+            for (int j = i + 1; j < numList.length; j++){
+                if (numList[i] == numList[j]){
+                    numTemp++;
+                }
+            }
+            if (numTemp > numCompareMode){
+                numCompareMode = numTemp;
+                compareMode = temp;
+                modes.clear();
+                modes.add(temp);
+            } else if (numTemp < numCompareMode || numTemp == 0){
+            } else {
+                modes.add(temp);
+            }
+        }
+        return modes;
     }
 }
